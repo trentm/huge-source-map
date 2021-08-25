@@ -12,5 +12,6 @@ all: dist/yuge.js.map
 src/yuge.ts: genyuge.py
 	python genyuge.py
 
+# Increase max-old-space-size to avoid "JavaScript heap out of memory".
 dist/yuge.js dist/yuge.js.map: src/yuge.ts
-	tsc # generate yuge.js.map from yuge.ts
+	NODE_OPTIONS='--max-old-space-size=4096' tsc

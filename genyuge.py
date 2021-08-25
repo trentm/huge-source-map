@@ -8,8 +8,9 @@ export function fn%d(value?: string) {
 '''
 outf = open(filename, 'w')
 
-for i in range(200000):
+NUM_FUNCTIONS = 200000
+for i in range(NUM_FUNCTIONS):
     outf.write(template % i)
 
 outf.close()
-print('Wrote %s' % filename)
+print('Wrote %s (with %d functions)' % (filename, NUM_FUNCTIONS))
